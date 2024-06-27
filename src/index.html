@@ -1,9 +1,27 @@
-<script>
-    CallIpLogger();
-    function CallIpLogger() {
-        let xhttp = new XMLHttpRequest();
-        let url = "IpLoggerApi.php";
-        xhttp.open("GET", url, true);
-        xhttp.send();
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        CallIpLogger();
+
+        function CallIpLogger() {
+            let xhttp = new XMLHttpRequest();
+            let url = "IpLoggerApi.php";
+            
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log("Request successful!"); // Replace with appropriate handling
+                } else {
+                    console.log("Request failed!"); // Replace with appropriate handling
+                }
+            };
+
+            xhttp.open("GET", url, true);
+            xhttp.send();
         }
-</script>
+    </script>
+</head>
+<body>
+    <!-- Your HTML content here -->
+</body>
+</html>
